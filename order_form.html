@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Formulaire de commande</title>
+    <script type="text/javascript">
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var cardNumber = document.getElementById("credit-card-number").value;
+            var expiry = document.getElementById("credit-card-expiry").value;
+            
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            var phonePattern = /^[0-9]{10}$/;
+            var cardPattern = /^[0-9]{16}$/;
+            var expiryPattern = /^(0[1-9]|1[0-2])\/[0-9]{4}$/;
+            
+            if (!emailPattern.test(email)) {
+                alert("Veuillez entrer une adresse e-mail valide.");
+                return false;
+            }
+            if (!phonePattern.test(phone)) {
+                alert("Veuillez entrer un numéro de téléphone valide (10 chiffres).");
+                return false;
+            }
+            if (!cardPattern.test(cardNumber)) {
+                alert("Veuillez entrer un numéro de carte de crédit valide (16 chiffres).");
+                return false;
+            }
+            if (!expiryPattern.test(expiry)) {
+                alert("Veuillez entrer la date d'expiration au format MM/AAAA.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Formulaire de commande en ligne</h1>
+    
+    <form action="" method="get" onsubmit="return validateForm();">
+        <!-- Informations d'expédition -->
+        <fieldset>
+            <legend>Informations d'expédition</legend>
+            <table>
+                <tr>
+                    <td><label for="shipping-name">Nom :</label></td>
+                    <td><input type="text" id="shipping-name" name="shipping-name" /></td>
+                </tr>
+                <tr>
+                    <td><label for="shipping-street">Rue :</label></td>
+                    <td><input type="text" id="shipping-street" name="shipping-street" /></td>
+                </tr>
+                <tr>
+                    <td><label for="shipping-city">Ville :</label></td>
+                    <td><input type="text" id="shipping-city" name="shipping-city" /></td>
+                </tr>
+                <tr>
+                    <td><label for="shipping-state">État :</label></td>
+                    <td><input type="text" id="shipping-state" name="shipping-state" size="2" /></td>
+                </tr>
+                <tr>
+                    <td><label for="shipping-zip">Code Postal :</label></td>
+                    <td><input type="text" id="shipping-zip" name="shipping-zip" size="5" /></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <!-- Informations de facturation -->
+        <fieldset>
+            <legend>Informations de facturation</legend>
+            <table>
+                <tr>
+                    <td><label for="billing-name">Nom :</label></td>
+                    <td><input type="text" id="billing-name" name="billing-name" /></td>
+                </tr>
+                <tr>
+                    <td><label for="billing-address">Adresse :</label></td>
+                    <td><input type="text" id="billing-address" name="billing-address" /></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <!-- Informations de carte de crédit -->
+        <fieldset>
+            <legend>Informations sur la carte de crédit</legend>
+            <table>
+                <tr>
+                    <td><label for="credit-card-type">Type de carte :</label></td>
+                    <td>
+                        <select id="credit-card-type" name="credit-card-type">
+                            <option value="">Sélectionnez une carte</option>
+                            <option value="visa">Visa</option>
+                            <option value="mastercard">MasterCard</option>
+                            <option value="amex">American Express</option>
+                            <option value="discover">Discover</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="credit-card-number">Numéro de carte :</label></td>
+                    <td><input type="text" id="credit-card-number" name="credit-card-number" maxlength="16" /></td>
+                </tr>
+                <tr>
+                    <td><label for="credit-card-expiry">Date d'expiration :</label></td>
+                    <td><input type="text" id="credit-card-expiry" name="credit-card-expiry" /> <small>(Format : MM/AAAA)</small></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <!-- Informations de contact -->
+        <fieldset>
+            <legend>Informations de contact</legend>
+            <table>
+                <tr>
+                    <td><label for="email">E-mail :</label></td>
+                    <td><input type="text" id="email" name="email" /></td>
+                </tr>
+                <tr>
+                    <td><label for="phone">Téléphone :</label></td>
+                    <td><input type="text" id="phone" name="phone" /> <small>(10 chiffres)</small></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="checkbox" id="newsletter" name="newsletter" checked="checked" />
+                        <label for="newsletter">Veuillez me tenir informé des offres futures.</label>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <!-- Boutons de soumission -->
+        <p>
+            <input type="submit" value="Soumettre" />
+            <input type="reset" value="Effacer" />
+        </p>
+    </form>
+
+</body>
+</html>
