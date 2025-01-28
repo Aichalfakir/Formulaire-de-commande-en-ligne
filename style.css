@@ -1,3 +1,4 @@
+/* Style général */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -9,6 +10,7 @@ h1 {
     color: #333;
 }
 
+/* Lien stylisé */
 a {
     font-size: 18px;
     text-decoration: none;
@@ -18,4 +20,64 @@ a {
     border-radius: 5px;
     display: inline-block;
     margin-top: 10px;
+}
+
+a:hover {
+    background: #0056b3;
+}
+
+/* Formulaire */
+form {
+    background: white;
+    padding: 20px;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+fieldset {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    padding: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"], input[type="reset"] {
+    width: auto;
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+input[type="reset"] {
+    background: #dc3545;
+}
+
+input[type="submit"]:hover {
+    background: #218838;
+}
+
+input[type="reset"]:hover {
+    background: #c82333;
 }
